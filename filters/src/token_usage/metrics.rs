@@ -24,10 +24,12 @@ use serde::Deserialize;
 use tracing::{debug, trace};
 
 use super::{META_TOKEN_INPUT, META_TOKEN_OUTPUT, META_TOKEN_STATUS, META_TOKEN_TOTAL, TOKEN_STATUS_OVERFLOW};
-use crate::identity::{
-    DEFAULT_IDENTITY_HEADER_PREFIX, DEFAULT_IDENTITY_METADATA_NAMESPACE, resolve_tenant_identity_from_metadata,
+use crate::{
+    identity::{
+        DEFAULT_IDENTITY_HEADER_PREFIX, DEFAULT_IDENTITY_METADATA_NAMESPACE, resolve_tenant_identity_from_metadata,
+    },
+    metering::{META_METERING_MODEL, META_METERING_USERNAME},
 };
-use crate::metering::{META_METERING_MODEL, META_METERING_USERNAME};
 
 // -----------------------------------------------------------------------------
 // Constants

@@ -43,15 +43,12 @@ impl TenantIdentity {
 ///
 /// Three tiers, most trusted first:
 ///
-/// 1. Unnamespaced `{prefix}*` metadata keys, written by an authentication
-///    filter from verified credentials (e.g. JWT claims or a validated API
-///    key). When any of these are present, every lower tier is ignored
-///    entirely so a client cannot spoof the remaining fields via forged
-///    headers alongside valid credentials.
-/// 2. Namespaced `{namespace}.{prefix}*` metadata keys, written by the
-///    `identity_header_guard` filter from captured request headers.
-/// 3. Raw `{prefix}*` request headers, set by a trusted upstream auth
-///    layer when neither metadata tier is populated.
+/// 1. Unnamespaced `{prefix}*` metadata keys, written by an authentication filter from verified credentials (e.g. JWT
+///    claims or a validated API key). When any of these are present, every lower tier is ignored entirely so a client
+///    cannot spoof the remaining fields via forged headers alongside valid credentials.
+/// 2. Namespaced `{namespace}.{prefix}*` metadata keys, written by the `identity_header_guard` filter from captured
+///    request headers.
+/// 3. Raw `{prefix}*` request headers, set by a trusted upstream auth layer when neither metadata tier is populated.
 ///
 /// Identity headers are always marked for removal so tenant identity
 /// never leaks to the upstream provider, regardless of which tier
