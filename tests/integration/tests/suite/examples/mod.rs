@@ -71,7 +71,7 @@ mod openai_prompts_routing;
 mod openai_response_store;
 #[cfg(feature = "store-postgres")]
 mod openai_response_store_postgres;
-#[cfg(feature = "store-postgres")]
+#[cfg(any(feature = "store-postgres", feature = "store-postgres-cert-auth"))]
 mod openai_response_store_postgres_mtls;
 #[cfg(feature = "openai-file-resolve-filter")]
 mod openai_responses_body_size_limits;
